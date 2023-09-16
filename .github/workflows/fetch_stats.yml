@@ -7,3 +7,13 @@ on:
 jobs:
   scheduled:
     runs-on: ubuntu-latest
+    steps:    
+    #- name: Install Python dependencies
+    #  run: |
+    #    pip install -r requirements.txt 
+    - name: Fetch data from the source every hour
+      continue-on-error: false
+      run: |
+        curl -s "https://data.moenv.gov.tw/api/v2/aqx_p_432?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=1000&sort=ImportDate%20desc&format=CSV" > hourly_aqi.csv
+      
+    
