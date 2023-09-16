@@ -1,0 +1,9 @@
+name: Fetch data from 政府資訊開放平台 every hour and format
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 * * * *' # every hour
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
