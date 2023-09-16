@@ -13,6 +13,7 @@ jobs:
     #    pip install -r requirements.txt 
     - name: Fetch data from the source every hour
       run: |
+        curl https://formulae.brew.sh/api/formula/datasette.json | jq . > homebrew-datasette.json
         # test if https://data.moenv.gov.tw/ is on
         if 
           curl -I "https://data.moenv.gov.tw/" 2>&1 | grep -w "200\|301" ; 
